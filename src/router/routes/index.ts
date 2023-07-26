@@ -1,6 +1,5 @@
 import type { RouteRecordNormalized } from 'vue-router';
 
-// const modules = import.meta.glob('./modules/*.ts', { eager: true });
 const ocpModules = import.meta.glob('./ocpModules/*.ts', { eager: true });
 const externalModules = import.meta.glob('./externalModules/*.ts', {
   eager: true,
@@ -17,8 +16,6 @@ function formatModules(_modules: any, result: RouteRecordNormalized[]) {
   });
   return result;
 }
-
-// export const appRoutes: RouteRecordNormalized[] = formatModules(modules, []);
 
 export const ocpRoutes: RouteRecordNormalized[] = formatModules(ocpModules, []);
 
