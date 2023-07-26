@@ -1,6 +1,6 @@
-import { appRoutes, appExternalRoutes } from '../routes';
+import { ocpRoutes, appExternalRoutes } from '../routes';
 
-const mixinRoutes = [...appRoutes, ...appExternalRoutes];
+const mixinRoutes = [...ocpRoutes, ...appExternalRoutes];
 
 const appClientMenus = mixinRoutes.map((el) => {
   const { name, path, meta, redirect, children } = el;

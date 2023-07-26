@@ -42,6 +42,25 @@ export default {
   'menu.user': '个人中心',
   'menu.arcoWebsite': 'Arco Design',
   'menu.faq': '常见问题',
+
+  // OCP 菜单
+  // 系统管理
+  'menu.system': '系统管理',
+  'menu.system.user': '用户管理',
+  'menu.system.role': '角色管理',
+  'menu.system.menu': '菜单管理',
+  // 认证中心
+  'menu.auth': '认证中心',
+  'menu.auth.app': '应用管理',
+  'menu.auth.token': 'token管理',
+  'menu.auth.service': '服务治理',
+  // 系统监控
+  'menu.monitor': '系统监控',
+  'menu.monitor.systemLog': '系统日志',
+  'menu.monitor.sql': '慢查询sql',
+  'menu.monitor.operationLog': '操作日志',
+  'menu.monitor.auditLog': '审计日志',
+
   'navbar.docs': '文档中心',
   'navbar.action.locale': '切换为中文',
   ...localeSettings,

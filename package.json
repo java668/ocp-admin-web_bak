@@ -11,8 +11,7 @@
     "report": "cross-env REPORT=true npm run build",
     "preview": "npm run build && vite preview --host",
     "type:check": "vue-tsc --noEmit --skipLibCheck",
-    "lint-staged": "npx lint-staged",
-    "prepare": "husky install"
+    "lint-staged": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
@@ -75,7 +74,7 @@
     "prettier": "^2.7.1",
     "rollup": "^3.9.1",
     "rollup-plugin-visualizer": "^5.8.2",
-    "stylelint": "^14.13.0",
+    "stylelint": "^15.6.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended-vue": "^1.4.0",
