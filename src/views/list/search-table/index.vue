@@ -196,6 +196,9 @@
         <template #index="{ rowIndex }">
           {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
         </template>
+        <template #id="{ rowIndex }">
+          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
+        </template>
         <template #contentType="{ record }">
           <a-space>
             <a-avatar
@@ -311,6 +314,10 @@
     },
     {
       title: t('searchTable.columns.number'),
+      dataIndex: 'id',
+    },
+    {
+      title: t('searchTable.columns.number'),
       dataIndex: 'number',
     },
     {
@@ -385,6 +392,7 @@
     setLoading(true);
     try {
       const { data } = await queryPolicyList(params);
+      console.log("data", data)
       renderData.value = data.list;
       pagination.current = params.current;
       pagination.total = data.total;
