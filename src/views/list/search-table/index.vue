@@ -191,13 +191,14 @@
         :data="renderData"
         :bordered="false"
         :size="size"
+        :scroll="{ x: 2000, y: '100%' }"
         @page-change="onPageChange"
       >
         <template #index="{ rowIndex }">
           {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
         </template>
-        <template #id="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
+        <template #id="{ record }">
+          {{ record.id }}
         </template>
         <template #contentType="{ record }">
           <a-space>
@@ -315,6 +316,10 @@
     {
       title: t('searchTable.columns.number'),
       dataIndex: 'id',
+      slotName: 'id',
+      width: 100,
+      ellipsis: true,
+      tooltip: true,
     },
     {
       title: t('searchTable.columns.number'),
@@ -392,7 +397,7 @@
     setLoading(true);
     try {
       const { data } = await queryPolicyList(params);
-      console.log("data", data)
+      console.log('data', data);
       renderData.value = data.list;
       pagination.current = params.current;
       pagination.total = data.total;

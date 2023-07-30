@@ -48,13 +48,16 @@
           </a-col>
           <a-col :span="12">
             <a-space>
-              <a-button type="primary">
+              <a-button type="primary" status="success">
                 <template #icon>
                   <icon-search />
                 </template>
                 <template #default>查询</template>
               </a-button>
-              <a-button>
+              <a-button type="primary" status="warning">
+                <template #icon>
+                  <icon-refresh />
+                </template>
                 <template #default>重置</template>
               </a-button>
               <a-button
@@ -72,14 +75,87 @@
           </a-col>
         </a-row>
       </a-form>
-      <a-divider style="margin-top: 0" />
-      <a-table :columns="columns" :data="data" />
+      <a-divider style="margin-top: 0; margin-bottom: 10px" />
+      <a-row class="toolbar">
+        <a-col :span="12">
+          <a-space>
+            <a-button type="primary">
+              <template #icon>
+                <icon-plus />
+              </template>
+              {{ $t('searchTable.operation.create') }}
+            </a-button>
+            <a-button type="primary" status="success">
+              <template #icon>
+                <icon-edit />
+              </template>
+              修改
+            </a-button>
+            <a-button type="primary" status="danger">
+              <template #icon>
+                <icon-delete />
+              </template>
+              删除
+            </a-button>
+            <a-upload action="/">
+              <template #upload-button>
+                <a-button>
+                  {{ $t('searchTable.operation.import') }}
+                </a-button>
+              </template>
+            </a-upload>
+          </a-space>
+        </a-col>
+        <a-col
+          :span="12"
+          style="display: flex; align-items: center; justify-content: end"
+        >
+          <a-button-group>
+            <a-button>
+              <template #icon><icon-refresh size="18" /></template>
+            </a-button>
+            <a-button>
+              <template #icon><icon-line-height size="18" /></template>
+            </a-button>
+            <a-button>
+              <template #icon><icon-settings size="18" /></template>
+            </a-button>
+          </a-button-group>
+          <!--          <a-tooltip :content="$t('searchTable.actions.refresh')">-->
+          <!--            <div class="action-icon" @click="search"-->
+          <!--              ><icon-refresh size="18"-->
+          <!--            /></div>-->
+          <!--          </a-tooltip>-->
+          <!--          <a-dropdown @select="handleSelectDensity">-->
+          <!--            <a-tooltip :content="$t('searchTable.actions.density')">-->
+          <!--              <div class="action-icon"><icon-line-height size="18" /></div>-->
+          <!--            </a-tooltip>-->
+          <!--            <template #content>-->
+          <!--              &lt;!&ndash;              <a-doption&ndash;&gt;-->
+          <!--              &lt;!&ndash;                v-for="item in densityList"&ndash;&gt;-->
+          <!--              &lt;!&ndash;                :key="item.value"&ndash;&gt;-->
+          <!--              &lt;!&ndash;                :value="item.value"&ndash;&gt;-->
+          <!--              &lt;!&ndash;                :class="{ active: item.value === size }"&ndash;&gt;-->
+          <!--              &lt;!&ndash;              >&ndash;&gt;-->
+          <!--              &lt;!&ndash;                <span>{{ item.name }}</span>&ndash;&gt;-->
+          <!--              &lt;!&ndash;              </a-doption>&ndash;&gt;-->
+          <!--            </template>-->
+          <!--          </a-dropdown>-->
+        </a-col>
+      </a-row>
+      <a-table
+        :columns="columns"
+        :data="data"
+        :bordered="false"
+        :scroll="{ x: 2000, y: '100%' }"
+      />
     </a-card>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
+  import { TableColumnData } from '@arco-design/web-vue/es/table/interface';
 
   const form = reactive({
     value1: '',
@@ -92,20 +168,38 @@
 
   const columns = [
     {
-      title: 'Name',
+      title: '用户编号',
       dataIndex: 'name',
     },
     {
-      title: 'Salary',
+      title: '账号',
       dataIndex: 'salary',
     },
     {
-      title: 'Address',
+      title: '用户名',
       dataIndex: 'address',
     },
     {
-      title: 'Email',
+      title: '手机号',
       dataIndex: 'email',
+    },
+    {
+      title: '性别',
+      dataIndex: 'email1',
+    },
+    {
+      title: '创建时间',
+      dataIndex: 'email2',
+    },
+    {
+      title: 'Email3',
+      dataIndex: 'email3',
+      ellipsis: true,
+      tooltip: true,
+    },
+    {
+      title: 'Email4',
+      dataIndex: 'email4',
     },
   ];
   const data = reactive([
@@ -143,12 +237,22 @@
       salary: 27000,
       address: '62 Park Road, London',
       email: 'william.smith@example.com',
+      email3:
+        'william.smith@example.comwilliam.smith@example.comwilliam.smith@example.comwilliam.smith@example.comwilliam.smith@example.com',
     },
   ]);
+
+  const search = () => {};
+  const handleSelectDensity = () => {};
 </script>
 
 <style scoped>
   .container {
     padding: 0 20px 20px 20px;
+  }
+
+  .toolbar {
+    margin-bottom: 10px;
+    align-items: center;
   }
 </style>

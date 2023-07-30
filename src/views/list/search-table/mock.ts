@@ -16,6 +16,10 @@ const data = Mock.mock({
       'status|1': ['online', 'offline'],
       'filterType|1': ['artificial', 'rules'],
       'createdTime': Random.datetime(),
+      'createdTime1': Random.datetime(),
+      'createdTime2': Random.datetime(),
+      'createdTime3': Random.datetime(),
+      'createdTime4': Random.datetime(),
     },
   ],
 });
