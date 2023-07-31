@@ -104,6 +104,13 @@
                 </a-button>
               </template>
             </a-upload>
+            <a-upload action="/">
+              <template #upload-button>
+                <a-button>
+                  {{ $t('searchTable.operation.download') }}
+                </a-button>
+              </template>
+            </a-upload>
           </a-space>
         </a-col>
         <a-col
