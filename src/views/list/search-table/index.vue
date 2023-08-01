@@ -164,15 +164,13 @@
                     <div style="margin-right: 4px; cursor: move">
                       <icon-drag-arrow />
                     </div>
-                    <div>
-                      <a-checkbox
-                        v-model="item.checked"
-                        @change="
-                          handleChange($event, item as TableColumnData, index)
-                        "
-                      >
-                      </a-checkbox>
-                    </div>
+                    <a-checkbox
+                      v-model="item.checked"
+                      @change="
+                        handleChange($event, item as TableColumnData, index)
+                      "
+                    >
+                    </a-checkbox>
                     <div class="title">
                       {{ item.title === '#' ? '序列号' : item.title }}
                     </div>
